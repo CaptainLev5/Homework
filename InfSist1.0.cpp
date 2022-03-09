@@ -16,67 +16,67 @@ struct Products
 void menu()
 {
 	setlocale(LC_ALL, "rus");
-	cout << "     Управление заказами       \n";
+	cout << "     Г“ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ Г§Г ГЄГ Г§Г Г¬ГЁ       \n";
 	cout << "================================\n";
-	cout << " 1. Смотреть список заказов.\n";
-	cout << " 2. Добавить заказ в список.\n";
-	cout << " 3. Найти заказ в списке.\n";
-	cout << " 4. Удаление заказа из списка.\n";
-	cout << " 5. Выйти из меню управления.\n";
-	cout << " 6. Удалить файл и выйти.\n";
+	cout << " 1. Г‘Г¬Г®ГІГ°ГҐГІГј Г±ГЇГЁГ±Г®ГЄ Г§Г ГЄГ Г§Г®Гў.\n";
+	cout << " 2. Г„Г®ГЎГ ГўГЁГІГј Г§Г ГЄГ Г§ Гў Г±ГЇГЁГ±Г®ГЄ.\n";
+	cout << " 3. ГЌГ Г©ГІГЁ Г§Г ГЄГ Г§ Гў Г±ГЇГЁГ±ГЄГҐ.\n";
+	cout << " 4. Г“Г¤Г Г«ГҐГ­ГЁГҐ Г§Г ГЄГ Г§Г  ГЁГ§ Г±ГЇГЁГ±ГЄГ .\n";
+	cout << " 5. Г‚Г»Г©ГІГЁ ГЁГ§ Г¬ГҐГ­Гѕ ГіГЇГ°Г ГўГ«ГҐГ­ГЁГї.\n";
+	cout << " 6. Г“Г¤Г Г«ГЁГІГј ГґГ Г©Г« ГЁ ГўГ»Г©ГІГЁ.\n";
 	cout << "================================\n";
 }
 
 
-void EnteringOrders(Products* order, int B, const char list[]) // функция добавления в сист.
+void EnteringOrders(Products* order, int B, const char list[]) // ГґГіГ­ГЄГ¶ГЁГї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Гў Г±ГЁГ±ГІ.
 {
 	ofstream OrderList("D:\\Proga\\zakazi.txt", ios::app);
 
 	for (int j = 0; j < B; j++)
 	{
 		cin.get();
-		cout << "\n Введите название продукта:  ";
+		cout << "\n Г‚ГўГҐГ¤ГЁГІГҐ Г­Г Г§ГўГ Г­ГЁГҐ ГЇГ°Г®Г¤ГіГЄГІГ :  ";
 		getline(cin, order[j].nazvanie);
 		cout << endl;
-		cout << "\n Введите цену продукта (число):  ";
+		cout << "\n Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГҐГ­Гі ГЇГ°Г®Г¤ГіГЄГІГ  (Г·ГЁГ±Г«Г®):  ";
 		cin >> order[j].price;
 		cout << endl;
-		cout << "\n Введите дату:  ";
+		cout << "\n Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г ГІГі:  ";
 		cin >> order[j].date;
 		cout << endl;
 
 		cin.get();
 		cout << endl;
-		cout << "Продукт успешно добавлен!\n" << endl;
+		cout << "ГЏГ°Г®Г¤ГіГЄГІ ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­!\n" << endl;
 		system("pause");
 
 		OrderList << "----------------------------------------------------------------\n";
-		OrderList << "Название: " << order[j].nazvanie << " | " << "Цена: " << order[j].price << " рублей" << " | ";
-		OrderList << "Дата заказа: " << order[j].date << '\n';
+		OrderList << "ГЌГ Г§ГўГ Г­ГЁГҐ: " << order[j].nazvanie << " | " << "Г–ГҐГ­Г : " << order[j].price << " Г°ГіГЎГ«ГҐГ©" << " | ";
+		OrderList << "Г„Г ГІГ  Г§Г ГЄГ Г§Г : " << order[j].date << '\n';
 		OrderList << "----------------------------------------------------------------\n\n";
 		cout << endl;
 	}
 }
-int AddNewOrders(const char list[]) // функция добавления в лист
+int AddNewOrders(const char list[]) // ГґГіГ­ГЄГ¶ГЁГї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Гў Г«ГЁГ±ГІ
 {
 	int B;
-	cout << "Сколько продуктов хотите добавить?\n" << endl;
+	cout << "Г‘ГЄГ®Г«ГјГЄГ® ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГµГ®ГІГЁГІГҐ Г¤Г®ГЎГ ГўГЁГІГј?\n" << endl;
 	cin >> B;
 	cout << endl;
 
-	if (B < 1) // проверка на целое число заказов
-		cout << "Некорректное число!\n" << endl;
+	if (B < 1) // ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г¶ГҐГ«Г®ГҐ Г·ГЁГ±Г«Г® Г§Г ГЄГ Г§Г®Гў
+		cout << "ГЌГҐГЄГ®Г°Г°ГҐГЄГІГ­Г®ГҐ Г·ГЁГ±Г«Г®!\n" << endl;
 	system("pause");
-	if (B < 1) // если не целое - завершение функции
+	if (B < 1) // ГҐГ±Г«ГЁ Г­ГҐ Г¶ГҐГ«Г®ГҐ - Г§Г ГўГҐГ°ГёГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ
 		return 0;
 
-	Products* order = new Products[B]; // динам. массив кол-ва введённых продуктов
-	EnteringOrders(order, B, list); // функция добавления
+	Products* order = new Products[B]; // Г¤ГЁГ­Г Г¬. Г¬Г Г±Г±ГЁГў ГЄГ®Г«-ГўГ  ГўГўГҐГ¤ВёГ­Г­Г»Гµ ГЇГ°Г®Г¤ГіГЄГІГ®Гў
+	EnteringOrders(order, B, list); // ГґГіГ­ГЄГ¶ГЁГї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї
 	delete[] order;
 	return 0;
 }
 
-void numberChoice(const char list[]) // выбор функций системы
+void numberChoice(const char list[]) // ГўГ»ГЎГ®Г° ГґГіГ­ГЄГ¶ГЁГ© Г±ГЁГ±ГІГҐГ¬Г»
 {
 	int i = 0;
 	int j = -1;
@@ -85,11 +85,11 @@ void numberChoice(const char list[]) // выбор функций системы
 	while (i <= 5)
 	{
 		system("cls");
-		menu(); // вызываем меню управления
+		menu(); // ГўГ»Г§Г»ГўГ ГҐГ¬ Г¬ГҐГ­Гѕ ГіГЇГ°Г ГўГ«ГҐГ­ГЁГї
 		cin >> i;
-		switch (i)  // введённое число соответствует кейсу
+		switch (i)  // ГўГўГҐГ¤ВёГ­Г­Г®ГҐ Г·ГЁГ±Г«Г® Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГҐГІ ГЄГҐГ©Г±Гі
 		{
-		case 1: // показ исходного списка
+		case 1: // ГЇГ®ГЄГ Г§ ГЁГ±ГµГ®Г¤Г­Г®ГЈГ® Г±ГЇГЁГ±ГЄГ 
 		{
 			ifstream OrderList(list);
 			while (OrderList)
@@ -100,15 +100,15 @@ void numberChoice(const char list[]) // выбор функций системы
 				j = j + 1;
 			}
 
-			if (j < 1)  // проверка на пустой лист
-				cout << "Нет заказов!\n" << endl;
+			if (j < 1)  // ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  ГЇГіГ±ГІГ®Г© Г«ГЁГ±ГІ
+				cout << "ГЌГҐГІ Г§Г ГЄГ Г§Г®Гў!\n" << endl;
 
-			cout << "Вернуться назад? ";
+			cout << "Г‚ГҐГ°Г­ГіГІГјГ±Гї Г­Г Г§Г Г¤? ";
 			system("pause");
 			break;
 		}
 
-		case 2: // добавление в лист
+		case 2: // Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Гў Г«ГЁГ±ГІ
 		{
 			AddNewOrders(list);
 			break;
@@ -120,7 +120,7 @@ void numberChoice(const char list[]) // выбор функций системы
 
 			string search;
 			string line;
-			cout << "Введите то, что хотите найти" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГІГ®, Г·ГІГ® ГµГ®ГІГЁГІГҐ Г­Г Г©ГІГЁ" << endl;
 			cin >> search;
 
 			while (getline(in, line)) {
@@ -138,7 +138,7 @@ void numberChoice(const char list[]) // выбор функций системы
 
 			break;
 		}
-		case 4: // удаление из листа
+		case 4: // ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЁГ§ Г«ГЁГ±ГІГ 
 		{
 			ifstream in;
 			in.open("D:\\Proga\\zakazi.txt");
@@ -147,7 +147,7 @@ void numberChoice(const char list[]) // выбор функций системы
 
 			string search;
 			string line;
-			cout << "Введите то, что хотите удалить" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГІГ®, Г·ГІГ® ГµГ®ГІГЁГІГҐ ГіГ¤Г Г«ГЁГІГј" << endl;
 			cin >> search;
 
 			while (getline(in, line))
@@ -170,9 +170,9 @@ void numberChoice(const char list[]) // выбор функций системы
 			system("pause");
 			break;
 		}
-		case 5: // выход
+		case 5: // ГўГ»ГµГ®Г¤
 		{
-			cout << "\nДо свидания!\n";
+			cout << "\nГ„Г® Г±ГўГЁГ¤Г Г­ГЁГї!\n";
 			system("pause");
 			exit(0);
 			break;
@@ -180,7 +180,7 @@ void numberChoice(const char list[]) // выбор функций системы
 		case 6:
 		{
 			remove("D:\\Proga\\zakazi.txt");
-			cout << "Удаление успешно проведено.\n";
+			cout << "Г“Г¤Г Г«ГҐГ­ГЁГҐ ГіГ±ГЇГҐГёГ­Г® ГЇГ°Г®ГўГҐГ¤ГҐГ­Г®.\n";
 			exit(0);
 			break;
 		}

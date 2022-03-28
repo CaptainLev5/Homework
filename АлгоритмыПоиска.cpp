@@ -2,6 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <algorithm>
+#include <windows.h>
 using namespace std;
 
 int linesearch(int mass[], int n, int x)
@@ -67,6 +68,8 @@ int binarysearch(int mass[], int n, int x)
 
 int main()
 {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "rus");
 	int n;
 	do

@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <fstream>
 #include <string>
 #include <windows.h>
@@ -16,68 +16,68 @@ struct Products
 void menu()
 {
 	setlocale(LC_ALL, "rus");
-	cout << "     Управление заказами       \n";
+	cout << "     РЈРїСЂР°РІР»РµРЅРёРµ Р·Р°РєР°Р·Р°РјРё       \n";
 	cout << "================================\n";
-	cout << " 1. Смотреть список заказов.\n";
-	cout << " 2. Добавить заказ в список.\n";
-	cout << " 3. Удаление заказа из списка.\n";
-	cout << " 4. Выйти из меню управления.\n";
-	cout << " 5. Удалить файл и выйти.\n";
+	cout << " 1. РЎРјРѕС‚СЂРµС‚СЊ СЃРїРёСЃРѕРє Р·Р°РєР°Р·РѕРІ.\n";
+	cout << " 2. Р”РѕР±Р°РІРёС‚СЊ Р·Р°РєР°Р· РІ СЃРїРёСЃРѕРє.\n";
+	cout << " 3. РЈРґР°Р»РµРЅРёРµ Р·Р°РєР°Р·Р° РёР· СЃРїРёСЃРєР°.\n";
+	cout << " 4. Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ СѓРїСЂР°РІР»РµРЅРёСЏ.\n";
+	cout << " 5. РЈРґР°Р»РёС‚СЊ С„Р°Р№Р» Рё РІС‹Р№С‚Рё.\n";
 	cout << "================================\n";
 }
 
 
-void EnteringOrders(Products* order, int B, const char list[]) // функция добавления в сист.
+void EnteringOrders(Products* order, int B, const char list[]) // С„СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ РІ СЃРёСЃС‚.
 {
 	ofstream OrderList("D:\\Proga\\zakazi.txt", ios::app);
 	
 	for (int j = 0; j < B; j++)
 	{
 		cin.get();
-		cout << "\n Введите название продукта:  ";
+		cout << "\n Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р°:  ";
 		getline(cin, order[j].nazvanie);
 		cout << endl;
-		cout << "\n Введите цену продукта (число):  ";
+		cout << "\n Р’РІРµРґРёС‚Рµ С†РµРЅСѓ РїСЂРѕРґСѓРєС‚Р° (С‡РёСЃР»Рѕ):  ";
 		cin >> order[j].price;
 		cout << endl;
-		cout << "\n Введите дату:  ";
+		cout << "\n Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ:  ";
 		cin >> order[j].date;
 		cout << endl;
 		
 		cin.get();
 		cout << endl;
-		cout << "Продукт успешно добавлен!\n" << endl;
+		cout << "РџСЂРѕРґСѓРєС‚ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ!\n" << endl;
 		system("pause");
 		
 		OrderList << "----------------------------------------------------------------\n";
-		OrderList << "Название: " << order[j].nazvanie << " | " << "Цена: " << order[j].price << " рублей" <<" | ";
-		OrderList << "Дата заказа: " << order[j].date << '\n';
+		OrderList << "РќР°Р·РІР°РЅРёРµ: " << order[j].nazvanie << " | " << "Р¦РµРЅР°: " << order[j].price << " СЂСѓР±Р»РµР№" <<" | ";
+		OrderList << "Р”Р°С‚Р° Р·Р°РєР°Р·Р°: " << order[j].date << '\n';
 		OrderList << "----------------------------------------------------------------\n\n";
 		cout << endl;
 	}
 }
 
-int AddNewOrders(const char list[]) // функция добавления в лист
+int AddNewOrders(const char list[]) // С„СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ РІ Р»РёСЃС‚
 {
 	int B;
-	cout << "Сколько продуктов хотите добавить?\n" << endl;
+	cout << "РЎРєРѕР»СЊРєРѕ РїСЂРѕРґСѓРєС‚РѕРІ С…РѕС‚РёС‚Рµ РґРѕР±Р°РІРёС‚СЊ?\n" << endl;
 	cin >> B;
 	cout << endl;
 
-	if (B < 1) // проверка на целое число заказов
-		cout << "Некорректное число!\n" << endl;
+	if (B < 1) // РїСЂРѕРІРµСЂРєР° РЅР° С†РµР»РѕРµ С‡РёСЃР»Рѕ Р·Р°РєР°Р·РѕРІ
+		cout << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ С‡РёСЃР»Рѕ!\n" << endl;
 	system("pause");
-	if (B < 1) // если не целое - завершение функции
+	if (B < 1) // РµСЃР»Рё РЅРµ С†РµР»РѕРµ - Р·Р°РІРµСЂС€РµРЅРёРµ С„СѓРЅРєС†РёРё
 		return 0;
 	
-	Products* order = new Products[B]; // динам. массив кол-ва введённых продуктов
-	EnteringOrders(order, B, list); // функция добавления
+	Products* order = new Products[B]; // РґРёРЅР°Рј. РјР°СЃСЃРёРІ РєРѕР»-РІР° РІРІРµРґС‘РЅРЅС‹С… РїСЂРѕРґСѓРєС‚РѕРІ
+	EnteringOrders(order, B, list); // С„СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ
 	delete[] order;
 	return 0;
 }
 
 
-void numberChoice(const char list[]) // выбор функций системы
+void numberChoice(const char list[]) // РІС‹Р±РѕСЂ С„СѓРЅРєС†РёР№ СЃРёСЃС‚РµРјС‹
 {
 	int i = 0;
 	int j = -1;
@@ -86,11 +86,11 @@ void numberChoice(const char list[]) // выбор функций системы
 	while (i <= 5)
 	{
 		system("cls");
-		menu(); // вызываем меню управления
+		menu(); // РІС‹Р·С‹РІР°РµРј РјРµРЅСЋ СѓРїСЂР°РІР»РµРЅРёСЏ
 		cin >> i;
-		switch (i)  // введённое число соответствует кейсу
+		switch (i)  // РІРІРµРґС‘РЅРЅРѕРµ С‡РёСЃР»Рѕ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РєРµР№СЃСѓ
 		{
-		case 1: // показ исходного списка
+		case 1: // РїРѕРєР°Р· РёСЃС…РѕРґРЅРѕРіРѕ СЃРїРёСЃРєР°
 		{
 			ifstream OrderList(list);
 			while (OrderList)
@@ -101,21 +101,21 @@ void numberChoice(const char list[]) // выбор функций системы
 				j = j + 1;
 			}
 
-			if (j < 1)  // проверка на пустой лист
-				cout << "Нет заказов!\n" << endl;
+			if (j < 1)  // РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕР№ Р»РёСЃС‚
+				cout << "РќРµС‚ Р·Р°РєР°Р·РѕРІ!\n" << endl;
 
-			cout << "Вернуться назад? ";
+			cout << "Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР°Р·Р°Рґ? ";
 			system("pause");
 			break;
 		}
 
-		case 2: // добавление в лист
+		case 2: // РґРѕР±Р°РІР»РµРЅРёРµ РІ Р»РёСЃС‚
 		{
 			AddNewOrders(list);
 			break;
 		}
 		
-		case 3: // удаление из листа
+		case 3: // СѓРґР°Р»РµРЅРёРµ РёР· Р»РёСЃС‚Р°
 		{
 			ifstream in;
 			in.open("D:\\Proga\\zakazi.txt");
@@ -124,7 +124,7 @@ void numberChoice(const char list[]) // выбор функций системы
 
 			string search;
 			string line;
-			cout << "Введите то, что хотите удалить" << endl;
+			cout << "Р’РІРµРґРёС‚Рµ С‚Рѕ, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ" << endl;
 			cin >> search;
 
 			while (getline(in, line)) 
@@ -147,9 +147,9 @@ void numberChoice(const char list[]) // выбор функций системы
 			system("pause");
 			break;
 		}
-		case 4: // выход
+		case 4: // РІС‹С…РѕРґ
 		{
-			cout << "\nДо свидания!\n";
+			cout << "\nР”Рѕ СЃРІРёРґР°РЅРёСЏ!\n";
 			system("pause");
 			exit(0);
 			break;
@@ -157,7 +157,7 @@ void numberChoice(const char list[]) // выбор функций системы
 		case 5:
 		{
 			remove("D:\\Proga\\zakazi.txt");
-			cout << "Удаление успешно проведено.\n";
+			cout << "РЈРґР°Р»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РїСЂРѕРІРµРґРµРЅРѕ.\n";
 			exit(0);
 			break;
 		}
